@@ -1,3 +1,4 @@
+import 'package:demo_sdk/demo_sdk.dart';
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'profile_page.dart';
@@ -77,7 +78,20 @@ class _HomePageState extends State<HomePage> {
           // Logout Button
           IconButton(
             icon: const Icon(Icons.logout),
+            // onPressed: () {
+            //   Navigator.pushAndRemoveUntil(
+            //     context,
+            //     MaterialPageRoute(
+            //       builder: (context) => const LoginPage(),
+            //     ),
+            //         (route) => false,
+            //   );
+            // },
             onPressed: () {
+              // Clear SDK Session
+              LoginSdk.logout();
+
+              // Navigate to Login Page
               Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(
